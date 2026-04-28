@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Meine erste Webseite</title>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Syne:wght@400;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0f0f0f;
+      --fg: #f0ede6;
+      --accent: #ff5c00;
+      --muted: #444;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background: var(--bg);
+      color: var(--fg);
+      font-family: 'Space Mono', monospace;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+      overflow: hidden;
+    }
+
+    .container {
+      max-width: 640px;
+      width: 100%;
+      text-align: center;
+      animation: fadeUp 0.8s ease both;
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .tag {
+      font-size: 0.75rem;
+      letter-spacing: 0.2em;
+      color: var(--accent);
+      text-transform: uppercase;
+      margin-bottom: 1.5rem;
+      animation: fadeUp 0.8s ease 0.1s both;
+    }
+
+    h1 {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(2.5rem, 8vw, 5rem);
+      font-weight: 800;
+      line-height: 1;
+      margin-bottom: 1.5rem;
+      animation: fadeUp 0.8s ease 0.2s both;
+    }
+
+    h1 span {
+      color: var(--accent);
+    }
+
+    p {
+      color: #aaa;
+      line-height: 1.7;
+      margin-bottom: 2.5rem;
+      font-size: 0.95rem;
+      animation: fadeUp 0.8s ease 0.3s both;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 0.9rem 2rem;
+      border: 1px solid var(--accent);
+      color: var(--accent);
+      text-decoration: none;
+      font-family: 'Space Mono', monospace;
+      font-size: 0.85rem;
+      letter-spacing: 0.1em;
+      transition: all 0.2s;
+      animation: fadeUp 0.8s ease 0.4s both;
+      cursor: pointer;
+      background: transparent;
+    }
+
+    .btn:hover {
+      background: var(--accent);
+      color: var(--bg);
+    }
+
+    .dots {
+      position: fixed;
+      inset: 0;
+      background-image: radial-gradient(circle, #333 1px, transparent 1px);
+      background-size: 32px 32px;
+      opacity: 0.3;
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    .footer {
+      position: fixed;
+      bottom: 2rem;
+      font-size: 0.7rem;
+      color: var(--muted);
+      letter-spacing: 0.1em;
+    }
+
+    #message {
+      margin-top: 1.5rem;
+      font-size: 0.85rem;
+      color: var(--accent);
+      min-height: 1.2em;
+      animation: none;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="dots"></div>
+
+  <div class="container">
+    <div class="tag">Version 1.0 — Erste Webseite</div>
+    <h1>Hallo,<br>ich bin <span>online.</span></h1>
+    <p>Das hier ist meine erste eigene Webseite.<br>
+    Sie läuft auf GitHub Pages — kostenlos, weltweit erreichbar.</p>
+    <button class="btn" onclick="greet()">Klick mich</button>
+    <div id="message"></div>
+  </div>
+
+  <div class="footer">github.com/deinname — gehostet auf GitHub Pages</div>
+
+  <script>
+    const messages = [
+      "Es funktioniert. 🚀",
+      "HTML ist eigentlich gar nicht schwer.",
+      "Nächster Schritt: CSS animieren.",
+      "Und dann: JavaScript.",
+      "Du hast das im Griff."
+    ];
+    let i = 0;
+    function greet() {
+      document.getElementById('message').textContent = messages[i % messages.length];
+      i++;
+    }
+  </script>
+
+</body>
+</html>
